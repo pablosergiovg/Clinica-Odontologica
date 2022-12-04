@@ -26,8 +26,17 @@ h1{
 nav{
   display: flex;
   width: 80vw;
-  justify-content: flex-start;
+  justify-content: flex-end;
   padding: 1rem;
+  background-color: #dddddd;
+
+}
+
+/*ESTILO AGREGADOS*/
+nav button{
+  background-color: black;
+  border-radius: 5px;
+  border: none;
 }
 
 a{
@@ -78,6 +87,15 @@ form{
   width: 200px;
   padding: 0.5rem 0.5rem 0 0.5rem;
   border: 0.5px solid rgb(136, 136, 136);
+}
+
+.card img{
+  width: 100%;
+}
+
+/*ESTILO AGREGADOS*/
+.card button{
+  margin-bottom: 0.5rem;
 }
 
 .card:hover{
