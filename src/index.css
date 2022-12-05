@@ -24,7 +24,7 @@ h1{
 }
 
 .nav-container{
-  background-color: #dddddd;
+  background-color: #f2f2f2;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -42,7 +42,6 @@ h1{
 
 nav{
   display: flex;
-  padding: 1rem;
 }
 
 /*ESTILO AGREGADO*/
@@ -83,16 +82,26 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
-  padding: 2rem;
-  position: relative;
-  bottom: 0;
-  width: 90%;
-  height: 40px;
   margin-top: 2rem;
 }
 
-footer > * > img {
+/*ESTILO AGREGADO*/
+footer button{
+  background-color: red;
+  color: white;
+  border: none;
+  height: 2rem;
+
+}
+
+/*ESTILO AGREGADO*/
+footer > div{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20vw;
+}
+
+footer > * > * > img {
   width: 200px;
   margin: 0;
 }

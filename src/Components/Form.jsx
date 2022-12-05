@@ -6,14 +6,15 @@ import * as Yup from "yup"
 const Form = () => {
   //Aqui deberan implementar el form completo con sus validaciones
 
-  let valoresIniciales = {
+  const valoresIniciales = {
     nombre: '',
     email: ''
   }
 
   const enviarForm = ( data) => {
     console.log(data);
-    alert(`Gracias ${data.nombre}, te contactaremos cuanto antes vía email`)
+    document.querySelector(".mensaje").innerHTML = `<h3>Gracias ${data.nombre}, te contactaremos cuanto antes vía email</h3>`;
+    
   }
 
   const esquemaContacto = Yup.object({
@@ -25,11 +26,12 @@ const Form = () => {
     initialValues: valoresIniciales,
     onSubmit: enviarForm,
     validationSchema: esquemaContacto
+    
   })
 
   return (
     <div className="form-container">
-      <Typography color='primary' variant='h3' align='center'>Formulario de contacto</Typography>
+      <Typography sx={{marginBottom: "2.2rem"}} color='primary' variant='h3' align='center'>Formulario de contacto</Typography>
       <form action="" className="form-container" onSubmit={handleSubmit}>
         <Grid container direction='row' alignItems={'center'} justifyContent='space-evenly' spacing={2} sx={{ width: '100%' }}>
           <Grid item xs={12} md={9}>
@@ -41,6 +43,7 @@ const Form = () => {
         </Grid>
         <Button type="submit" variant="contained">Enviar</Button>
       </form>
+      <div className="mensaje"></div>
     </div>
   );
 };

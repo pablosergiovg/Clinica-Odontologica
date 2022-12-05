@@ -5,22 +5,25 @@ const Footer = () => {
   return (
     <footer>
         <button className='back-to-top'>VOLVER HACIA ARRIBA</button>
-        <Box className='footer-img' sx={{
-          display: "flex",
-          justifyContent: "space-evenly",
-          alignItems: "center", 
-          color: "MenuText",
-          maxWidth: ""
-        }}>
-          <img src="./images/DH.png" alt='DH-logo'/>
-        </Box>
+        <div className='footer-container'>
+          <div className='footer-img' sx={{
+            display: "flex",
+            justifyContent: "space-evenly",
+            alignItems: "center", 
+            color: "MenuText",
+            maxWidth: ""
+            }}>
+            <img src="./images/DH.png"  alt='DH-logo'/>
+          </div>
 
-        <Box className='social-media'>
-          <i className="fa-brands fa-facebook"></i>
-          <i className="fa-brands fa-instagram"></i>
-          <i className="fa-brands fa-tiktok"></i>
-          <i className="fa-brands fa-whatsapp"></i>
-        </Box>
+          <div className='social-media'>
+            <i className="fa-brands fa-facebook"></ i>
+            <i className="fa-brands fa-instagram"></  i>
+            <i className="fa-brands fa-tiktok"></i>
+            <i className="fa-brands fa-whatsapp"></ i>
+          </div>
+        </div>
+        
     </footer>
   )
 }
