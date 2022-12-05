@@ -10,6 +10,7 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
 .favButton{
   background-color: rgba(136, 136, 136, 0.116);
   padding: 10px;
@@ -60,6 +61,14 @@ nav button{
   align-items: center;
 }
 
+/*ESTILO AGREGADO*/
+.social-media{
+  display: flex;
+  font-size: 1.5rem;
+  align-items: center;
+  gap: 8px;
+}
+
 a{
   color: #000;
   text-decoration: none;
@@ -72,6 +81,7 @@ a:hover{
 
 footer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
   padding: 2rem;
@@ -82,10 +92,11 @@ footer {
   margin-top: 2rem;
 }
 
-footer > img{
+footer > * > img {
   width: 200px;
   margin: 0;
 }
+
 footer > p{
   margin: 0;
   padding-top: 0.7rem;
@@ -98,7 +109,7 @@ form{
   width: 300px;
   height: 100px;
   margin: 0 auto;
-  outline: 1px solid black;
+  /* outline: 1px solid black; */
 }
 
 .card{

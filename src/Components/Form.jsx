@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Grid, TextField, Typography } from '@mui/material'
-import { Formik, useFormik } from 'formik'
+import { useFormik } from 'formik'
 import * as Yup from "yup"
 
 const Form = () => {
@@ -30,7 +30,6 @@ const Form = () => {
   return (
     <div className="form-container">
       <Typography color='primary' variant='h3' align='center'>Formulario de contacto</Typography>
-      {/* <h1>Formulario de registro</h1> */}
       <form action="" className="form-container" onSubmit={handleSubmit}>
         <Grid container direction='row' alignItems={'center'} justifyContent='space-evenly' spacing={2} sx={{ width: '100%' }}>
           <Grid item xs={12} md={9}>
