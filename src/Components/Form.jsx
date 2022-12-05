@@ -14,7 +14,6 @@ const Form = () => {
   const enviarForm = ( data) => {
     console.log(data);
     document.querySelector(".mensaje").innerHTML = `<h3>Gracias ${data.nombre}, te contactaremos cuanto antes vía email</h3>`;
-    
   }
 
   const esquemaContacto = Yup.object({
@@ -26,7 +25,6 @@ const Form = () => {
     initialValues: valoresIniciales,
     onSubmit: enviarForm,
     validationSchema: esquemaContacto
-    
   })
 
   return (

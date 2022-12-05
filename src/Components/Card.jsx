@@ -5,7 +5,9 @@ const Card = ({ name, username, id }) => {
 
   const addFav = ()=>{
     // Aqui iria la logica para agregar la Card en el localStorage
-    localStorage.setItem("nombre", "Deberan estar los datos de la card para después leer localstorage en favoritos")
+    localStorage.setItem("name", name);
+    localStorage.setItem("username", username);
+    localStorage.setItem("id", id);
     alert("Dentista agregado a favoritos")
   }
 
@@ -17,9 +19,9 @@ const Card = ({ name, username, id }) => {
 
       <img src="images/doctor.jpg" alt="foto_dentista" />
       
-      <Link to={"/dentist/:id"}>Name</Link>
+      <Link to={"/dentist/:id"} >{name}</Link>
 
-      <p>Username</p>
+      <p>{username}</p>
       
       <button onClick={addFav} className="favButton">⭐</button>
     </div>
