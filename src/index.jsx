@@ -8,7 +8,7 @@ import Contact from "./Routes/Contact"
 import Detail from "./Routes/Detail"
 import Favs from "./Routes/Favs"
 import ErrorComponent from './Routes/ErrorComponent';
-import { ContextProvider } from './Components/utils/global.context';
+import ContextProvider from './Components/utils/global.context';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

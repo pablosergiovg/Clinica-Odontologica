@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { ContextGlobal } from "./utils/global.context";
+
 
 const Card = ({ name, username, id }) => {
+
+  const {state} = useContext(ContextGlobal);
 
   const addFav = ()=>{
     // Aqui iria la logica para agregar la Card en el localStorage
@@ -19,7 +23,7 @@ const Card = ({ name, username, id }) => {
 
       <img src="images/doctor.jpg" alt="foto_dentista" />
       
-      <Link to={"/dentist/:id"} >{name}</Link>
+      <Link to={`/dentist/${id}`} data={state.data}>{name}</Link>
 
       <p>{username}</p>
       

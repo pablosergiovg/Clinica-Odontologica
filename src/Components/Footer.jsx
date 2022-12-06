@@ -13,7 +13,7 @@ const Footer = () => {
             color: "MenuText",
             maxWidth: ""
             }}>
-            <img src="./images/DH.png"  alt='DH-logo'/>
+            <img src="/images/DH.png"  alt='DH-logo'/>
           </div>
 
           <div className='social-media'>
