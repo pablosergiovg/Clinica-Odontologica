@@ -11,15 +11,16 @@ const Detail = () => {
   const [odontologo, setOdontologo] = useState(null);
   const {id} = useParams();
 
-  const getData = () => {
+  
+  
+  
+  useEffect(() => {
+    
     axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
     .then(res => setOdontologo(res.data))
     .catch(error => console.log(error))
-  }
-  
-  useEffect(() => {
-    getData();
-  }, [])
+
+  }, [id])
   
   console.log(odontologo);
 
@@ -34,10 +35,10 @@ const Detail = () => {
           <th>Website</th>
         </tr>
         <tr>
-          <td>{}</td>
-          <td>{}</td>
-          <td>{}</td>
-          <td>{}</td>
+          <td>{odontologo?.name}</td>
+          <td>{odontologo?.email}</td>
+          <td>{odontologo?.phone}</td>
+          <td>{odontologo?.website}</td>
         </tr>
       </table>
       {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
