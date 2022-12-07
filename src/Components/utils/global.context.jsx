@@ -25,7 +25,7 @@ const ContextProvider = ({ children }) => {
 
 
   //API 
-  useMemo(() => {
+  useEffect(() => {
     axios.get('https://jsonplaceholder.typicode.com/users')
     .then(res => {
       dispatch({type: 'RESP', payload: res.data})

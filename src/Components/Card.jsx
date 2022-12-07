@@ -9,9 +9,8 @@ const Card = ({ name, username, id }) => {
 
   const addFav = ()=>{
     // Aqui iria la logica para agregar la Card en el localStorage
-    localStorage.setItem("name", name);
-    localStorage.setItem("username", username);
-    localStorage.setItem("id", id);
+    const odontologos = [{ name, username, id, }]
+    localStorage.setItem("favs", JSON.stringify(odontologos));
     alert("Dentista agregado a favoritos")
   }
 
