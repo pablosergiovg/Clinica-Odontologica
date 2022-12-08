@@ -8,8 +8,6 @@ import { ContextGlobal } from "../Components/utils/global.context";
 const Favs = () => {
 
   const {state} = useContext(ContextGlobal)
-
-  //const favoritos = obtenerFavoritosDeStorage()
   
   return (
     <>

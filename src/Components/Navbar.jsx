@@ -1,12 +1,13 @@
-import React, {useState} from 'react'
+import React from 'react'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { ContextGlobal } from './utils/global.context'
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Navbar = () => {
 
-  
-
+  const {dispatch} = useContext(ContextGlobal)
 
   return (
     <div className='nav-container'>
@@ -17,7 +18,7 @@ const Navbar = () => {
         <Link to={"/contact"} >Contact</Link>
         <Link to={"/favs"} >Favs</Link>
         {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
-        <button>🌙</button>
+        <button >🌙</button>
       </nav>
     </div>
   )
