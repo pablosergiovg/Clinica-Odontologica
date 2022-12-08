@@ -17,12 +17,10 @@ const reducerFunction = (state, action) => {
   }
 }
 
-
 const ContextProvider = ({ children }) => {
   //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
 
   const [state, dispatch] = useReducer(reducerFunction, initialState);
-
 
   //API 
   useEffect(() => {

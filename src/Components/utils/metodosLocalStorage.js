@@ -16,11 +16,10 @@ export const setFavoritosStorage = (odontologo) => {
         favoritos.push(odontologo)
         localStorage.setItem("favs", JSON.stringify(favoritos));
         alert(`Odontologo ${odontologo.name} se agregó a favoritos`)
-        return true
+        // return true
     }else{
         alert(`Odontologo ${odontologo.name} ya esta en favoritos`)
     }
-
 }
 
 export const eliminarDeFavorito = (id, name) => {
@@ -40,7 +39,7 @@ export const eliminarDeFavorito = (id, name) => {
 export const esFavorito = (id) => {
     const favoritos = obtenerFavoritosDeStorage();
     const nuevoFavoritos = favoritos.filter(fav => {
-        return fav.matricula === id
+        return fav.id === id
     });
     return nuevoFavoritos.length === 1;
 };

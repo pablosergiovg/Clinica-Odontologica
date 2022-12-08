@@ -8,16 +8,17 @@ const Card = ({ name, username, id }) => {
 
   const {state} = useContext(ContextGlobal);
 
-  const [favoritos, setFavoritos] = useState([])
-
-  
-
   const addFav = ()=>{
     // Aqui iria la logica para agregar la Card en el localStorage
-    const favorito = setFavoritosStorage({name, username, id});
-    esFavorito(id);
-  }
 
+    if(!esFavorito(id)) {
+      setFavoritosStorage({name, username, id});
+      // Cambiar el estilo del boton
+    } else {
+      eliminarDeFavorito(id, name)
+    }
+
+  }
 
   return (
     <div className="card">

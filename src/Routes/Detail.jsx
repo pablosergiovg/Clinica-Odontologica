@@ -11,9 +11,6 @@ const Detail = () => {
   const [odontologo, setOdontologo] = useState(null);
   const {id} = useParams();
 
-  
-  
-  
   useEffect(() => {
     
     axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
