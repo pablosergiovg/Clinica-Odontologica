@@ -1,15 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ContextGlobal } from "./utils/global.context";
-import { obtenerFavoritosDeStorage, setFavoritosStorage, eliminarDeFavorito, esFavorito} from "./utils/metodosLocalStorage";
+import { setFavoritosStorage, eliminarDeFavorito, esFavorito} from "./utils/metodosLocalStorage";
 
 
 const Card = ({ name, username, id }) => {
 
-  const {state} = useContext(ContextGlobal);
+  const {state, dispatch} = useContext(ContextGlobal);
 
   const addFav = ()=>{
     // Aqui iria la logica para agregar la Card en el localStorage
+
+    dispatch({type: "FLAG", payload: !state.flag})
 
     if(!esFavorito(id)) {
       setFavoritosStorage({name, username, id});
@@ -32,7 +34,7 @@ const Card = ({ name, username, id }) => {
 
       <p>{username}</p>
       
-      <button onClick={addFav} className="favButton">⭐</button>
+      <button onClick={addFav} className="favButton" >{esFavorito(id) ? "💗" : "🤍"}</button>
     </div>
   );
 };

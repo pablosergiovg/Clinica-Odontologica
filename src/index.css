@@ -91,8 +91,12 @@ footer button{
   color: white;
   border: none;
   height: 2rem;
-
 }
+
+footer button:hover{
+  background-color: rgb(235, 31, 31);
+}
+
 
 /*ESTILO AGREGADO*/
 footer > div{
@@ -146,7 +150,7 @@ form{
 
 .card-grid{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   gap: 1rem;
   width: 90vw;
   height: auto;
