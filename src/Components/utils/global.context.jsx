@@ -1,6 +1,4 @@
-import { createContext, useEffect, useReducer, useMemo } from "react";
-import axios from 'axios'
-import { obtenerFavoritosDeStorage } from "./metodosLocalStorage";
+import { createContext, useReducer } from "react";
 import { createTheme, ThemeProvider } from '@mui/material';
 import { blue, green, red, grey} from "@mui/material/colors";
 
@@ -29,29 +27,9 @@ const reducerFunction = (state, action) => {
 }
 
 const ContextProvider = ({ children }) => {
-  //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
 
   const [state, dispatch] = useReducer(reducerFunction, initialState);
 
-  
-  //API 
-  useMemo(() => {
-    axios.get('https://jsonplaceholder.typicode.com/users')
-    .then(res => {
-      dispatch({type: "DATA", payload: res.data})
-    })
-    .catch(error => console.error("Error", error))
-  },[])
-
-
-  //FAVORITOS 
-  useEffect(() => {
-    const favoritos = obtenerFavoritosDeStorage();
-    dispatch({type: "FAV", payload: favoritos})
-  }, [state.flag])
-
-  
-  //TEMASCOLORES 
   const theTheme = createTheme({
     palette:{
       primary: {
@@ -65,11 +43,9 @@ const ContextProvider = ({ children }) => {
       },
       success:{
         main: green[100]
-      }
+      },
     }
   });
-
-
 
   const store = {
     state,

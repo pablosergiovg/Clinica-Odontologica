@@ -1,19 +1,29 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Card from '../Components/Card'
 import { ContextGlobal } from '../Components/utils/global.context'
-
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
+import axios from 'axios'
 
 const Home = () => {
-  const { state } = useContext(ContextGlobal)
-  //console.log(state.data);
+  const { state, dispatch } = useContext(ContextGlobal)
+
+  const getData = () => {
+    axios.get('https://jsonplaceholder.typicode.com/users')
+    .then(res => {
+      dispatch({type: "DATA", payload: res.data})
+    })
+    .catch(error => console.error("Error", error))
+  }
+
+  useEffect(() => {
+    getData()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
+
   return (
-    <main className="" >
+    <main>
       <h1>Nuestros Odontologos</h1>
       <div className='card-grid'>
-        {/* Aqui deberias renderizar las cards */
-          state.data.map((odontologos) => <Card key={odontologos.id} name={odontologos.name} username={odontologos.username} id={odontologos.id} />)
-        }
+        {state.data.map((odontologos) => <Card key={odontologos.id} name={odontologos.name} username={odontologos.username} id={odontologos.id} />)}
       </div>
     </main>
   )

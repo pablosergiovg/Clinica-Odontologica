@@ -37,6 +37,7 @@ a:hover{
 } 
 
 
+
 /* <------ */ /* HEADER */ /* ------> */
 
 .nav-container{
@@ -208,7 +209,7 @@ td, th {
 .form-container{
   display: flex;
   flex-direction: column;
-  padding: 80px 0px;
+  padding: 20px 0px;
   gap: 15px;
   align-items: center;
 }
@@ -266,6 +267,13 @@ footer > * > * > img {
   gap: 8px;
 }
 
+.error404{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 
 /* <------ */ /* DARKMODE */ /* ------> */
@@ -315,27 +323,29 @@ footer > * > * > img {
   background-color: rgb(60, 60, 61);
 }
 
+.dark .form-container label{
+  color: white;
+}
+
+.dark .form-container input{
+  color: white;
+  border: 1px solid white;
+  border-radius: 4px;
+}
+
 
 
 /* <------ */ /* MEDIAQUERY */ /* ------> */
 
 @media(min-width: 768px){
-
-  
   #hamburguesaToggle{
     display: none;
   }
-  
-
 }
 
 @media(max-width: 767px){
-
   .hamburguesa{
     display: none;
   }
-
-  
-
 }
 
