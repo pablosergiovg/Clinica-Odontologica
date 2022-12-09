@@ -1,23 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Card from "../Components/Card";
 import { ContextGlobal } from "../Components/utils/global.context";
-//import { useEffect } from "react";
-
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
+import { obtenerFavoritosDeStorage } from "../Components/utils/metodosLocalStorage";
 
 const Favs = () => {
 
-  const {state} = useContext(ContextGlobal)
+  const {state, dispatch} = useContext(ContextGlobal)
+
+  useEffect(() => {
+    const favoritos = obtenerFavoritosDeStorage();
+    dispatch({type: "FAV", payload: favoritos})
+  }, [dispatch, state.flag])
   
   return (
     <>
-      <h1>Dentists Favs</h1>
+      <h1>Odontologos Favoritos</h1>
       <div className="card-grid">
-        {/* este componente debe consumir los destacados del localStorage */}
-        {/* Deberan renderizar una Card por cada uno de ellos */}
-
         {state.favoritos.map((odontologo) => <Card key={odontologo.id} name={odontologo.name} username={odontologo.username} id={odontologo.id} />)}
-
       </div>
     </>
   );

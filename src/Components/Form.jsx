@@ -4,7 +4,6 @@ import { useFormik } from 'formik'
 import * as Yup from "yup"
 
 const Form = () => {
-  //Aqui deberan implementar el form completo con sus validaciones
 
   const valoresIniciales = {
     nombre: '',
@@ -31,14 +30,14 @@ const Form = () => {
 
   return (
     <div className="form-container">
-      <Typography sx={{marginBottom: "2.2rem"}} color='primary' variant='h3' align='center'>Formulario de contacto</Typography>
+      <Typography sx={{marginBottom: "50px"}} color='primary' variant='h4' align='center'>Formulario de contacto</Typography>
       <form action="" className="form-container" onSubmit={handleSubmit}>
         <Grid container direction='row' alignItems={'center'} justifyContent='space-evenly' spacing={2} sx={{ width: '100%' }}>
           <Grid item xs={12} md={11}>
-            <TextField type='text' name='nombre' label="nombreCompleto" values={values.nombre} onChange={ handleChange } error={!!errors?.nombre} helperText={errors.nombre} variant='outlined' fullWidth/>
+            <TextField type='text' name='nombre' label="Nombre completo" values={values.nombre} onChange={ handleChange } error={!!errors?.nombre} helperText={errors.nombre} variant='outlined' fullWidth color="secondary"/>
           </Grid>
           <Grid item xs={12} md={11}>
-            <TextField type='email' name='email' label="email" values={values.email} onChange={ handleChange } error={!!errors?.email} helperText={errors.email} variant='outlined' fullWidth/>
+            <TextField type='email' name='email' label="Email" values={values.email} onChange={ handleChange } error={!!errors?.email} helperText={errors.email} variant='outlined' fullWidth color="secondary"/>
           </Grid>
         </Grid>
         <Button type="submit" variant="contained">Enviar</Button>

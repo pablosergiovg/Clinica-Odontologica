@@ -11,17 +11,34 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-.favButton{
-  background-color: rgba(136, 136, 136, 0.116);
-  padding: 10px;
-  border: none;
-  width: 100%;
-  cursor: pointer;
+.App{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+
+/* <------ */ /* GENERALES */ /* ------> */
 
 h1{
   text-align: center;
 }
+
+a{
+  color: #000;
+  text-decoration: none;
+  margin: 5px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+a:hover{
+  color: tomato;
+  font-weight: 700;
+} 
+
+
+
+/* <------ */ /* HEADER */ /* ------> */
 
 .nav-container{
   background-color: #f2f2f2;
@@ -29,6 +46,8 @@ h1{
   align-items: center;
   justify-content: space-between;
   padding: 0 20vw;
+  position: sticky;
+  top: 0;
 }
 
 .nav-item-title{
@@ -42,88 +61,93 @@ h1{
 
 nav{
   display: flex;
+  padding: 10px 0;
 }
 
-/*ESTILO AGREGADO*/
-nav button{
+nav button {
   background-color: black;
-  border-radius: 5px;
+  border-radius: 4px;
   border: none;
-}
-
-/*ESTILO AGREGADO*/
-.form-container{
-  display: flex;
-  flex-direction: column;
-  padding: 80px 0px;
-  gap: 15px;
-  align-items: center;
-}
-
-/*ESTILO AGREGADO*/
-.social-media{
-  display: flex;
-  font-size: 1.5rem;
-  align-items: center;
-  gap: 8px;
-}
-
-a{
-  color: #000;
-  text-decoration: none;
-  margin: 5px;
+  height: 30px;
+  width: 30px;
+  margin-left: 8px;
   cursor: pointer;
+  z-index: 2;
 }
 
-a:hover{
-  color: rgb(136, 136, 136);
-} 
-
-footer {
+.hamburguesa{
   display: flex;
-  flex-direction: column;
+  align-items: center;
+}
+
+.hamburguesa button{
+  background-color: rgba(0, 0, 255, 0);
+  display: flex;
+  align-items: center;
   justify-content: center;
-  margin-top: 2rem;
 }
 
-/*ESTILO AGREGADO*/
-footer button{
-  background-color: red;
-  color: white;
-  border: none;
-  height: 2rem;
+#hamburguesaToggle{
+  text-align: right;
+  position: relative;
+  z-index: 1;
+  height: 22px;
+  width: 75px;
 }
 
-/*ESTILO AGREGADO*/
-footer button:hover{
-  background-color: rgb(235, 31, 31);
+#hamburguesaToggle a:hover{
+  color: tomato;
 }
 
-/*ESTILO AGREGADO*/
-footer > div{
-  display: flex;
-  justify-content: space-between;
-  padding: 0 20vw;
+#hamburguesaToggle input{
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 49px;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
 }
 
-footer > * > * > img {
-  width: 200px;
-  margin: 0;
-}
-
-footer > p{
-  margin: 0;
-  padding-top: 0.7rem;
-}
-
-form{
+#menu{
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  width: 300px;
-  height: 100px;
-  margin: 0 auto;
+  text-align: center;
+  width: 125px;
+  padding: 5px 0px;
+  background-color: #f2f2f2;
+  transform-origin: 0% 0%;
+  transform: translate(0%, -150%);
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
+
+#menu a{
+  color: #000000;
+}
+
+#hamburguesaToggle input:checked ~ div{
+  transform: none;
+}
+
+
+
+/* <------ */ /* HOME */ /* ------> */
+
+.card-grid{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: 90vw;
+  height: auto;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+
+
+
+/* <------ */ /* CARD */ /* ------> */
 
 .card{
   display: flex;
@@ -135,57 +159,193 @@ form{
   border: 0.5px solid rgb(136, 136, 136);
 }
 
-.card img{
-  width: 100%;
-}
-
-/*ESTILO AGREGADOS*/
-.card button{
-  margin-bottom: 0.5rem;
-}
-
 .card:hover{
   border: 0.5px solid rgb(206, 217, 142);
 }
 
-.card-grid{
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  width: 90vw;
-  height: auto;
-  flex-wrap: wrap;
-  margin: 0 auto;
+.card img{
+  width: 100%;
 }
 
+.card a{
+  font-weight: 700;
+}
+
+.favButton{
+  background-color: rgba(136, 136, 136, 0.116);
+  padding: 10px;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+
+
+/* <------ */ /* DETAILS */ /* ------> */
+
 table {
- border-collapse: collapse;
+  border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
     display: table;
     border: 1px solid #ccc;
-
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
 }
 
 tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-.dark{
-  background-color: #12121296;
+td, th {
+  border: 1px solid #ababab;
+  text-align: left;
+  padding: 8px;
+}
+
+
+
+/* <------ */ /* CONTACT */ /* ------> */
+
+.form-container{
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0px;
+  gap: 15px;
+  align-items: center;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 300px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.contacto{
+  text-align: center;
+}
+
+
+
+/* <------ */ /* FOOTER */ /* ------> */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: auto;
+}
+
+footer button{
+  background-color: red;
   color: white;
+  border: none;
+  height: 2rem;
+}
+
+footer button:hover{
+  background-color: rgb(235, 31, 31);
+}
+
+footer > div{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20vw;
+}
+
+footer > * > * > img {
+  width: 200px;
+  margin: 0;
+}
+
+.social-media{
+  display: flex;
+  font-size: 1.5rem;
+  align-items: center;
+  gap: 8px;
+}
+
+.error404{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+/* <------ */ /* DARKMODE */ /* ------> */
+
+.dark{
+  background-color: #121212b2;
+  color: white;
+}
+
+.dark a {
+  color: white;
+}
+
+.dark a:hover{
+  color: rgb(255, 199, 189);
 }
 
 .dark .nav-container{
   background-color: rgb(27, 27, 28);
 }
 
-.dark * a {
+.dark .links.active{
+  background-color:rgb(27, 27, 28);
+}
+
+.dark * nav button{
+  background-color: white;
+}
+
+.dark #menu{
+  background-color: rgb(27, 27, 28);
+}
+
+.dark #menu a{
   color: white;
 }
+
+.dark #menu a:hover{
+  color: tomato;
+}
+
+.dark .favButton{
+  background-color: #1515155c;
+}
+
+.dark td{
+  background-color: rgb(60, 60, 61);
+}
+
+.dark .form-container label{
+  color: white;
+}
+
+.dark .form-container input{
+  color: white;
+  border: 1px solid white;
+  border-radius: 4px;
+}
+
+
+
+/* <------ */ /* MEDIAQUERY */ /* ------> */
+
+@media(min-width: 768px){
+  #hamburguesaToggle{
+    display: none;
+  }
+}
+
+@media(max-width: 767px){
+  .hamburguesa{
+    display: none;
+  }
+}
+

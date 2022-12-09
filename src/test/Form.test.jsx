@@ -1,4 +1,3 @@
-import  '@testing-library/jest-dom'
 import { fireEvent, render, screen } from '@testing-library/react'
 import Form from '../Components/Form'
 
@@ -9,8 +8,8 @@ describe('Form component', () => {
     let button;
     beforeEach(() => {
         render(<Form />);
-        inputName = screen.getByLabelText('nombreCompleto');
-        inputEmail = screen.getByLabelText('email');
+        inputName = screen.getByLabelText('Nombre completo');
+        inputEmail = screen.getByLabelText('Email');
         button = screen.getByRole('button', { name: 'Enviar' })
     })
 
