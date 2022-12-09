@@ -21,7 +21,7 @@ const Home = () => {
 
   return (
     <main>
-      <h1>Nuestros Odontologos</h1>
+      <h1>Nuestros Odontólogos</h1>
       <div className='card-grid'>
         {state.data.map((odontologos) => <Card key={odontologos.id} name={odontologos.name} username={odontologos.username} id={odontologos.id} />)}
       </div>

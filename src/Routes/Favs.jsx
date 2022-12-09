@@ -14,7 +14,7 @@ const Favs = () => {
   
   return (
     <>
-      <h1>Odontologos Favoritos</h1>
+      <h1>Odontólogos Favoritos</h1>
       <div className="card-grid">
         {state.favoritos.map((odontologo) => <Card key={odontologo.id} name={odontologo.name} username={odontologo.username} id={odontologo.id} />)}
       </div>

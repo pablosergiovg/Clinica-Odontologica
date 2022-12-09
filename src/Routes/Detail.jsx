@@ -17,13 +17,13 @@ const Detail = () => {
 
   return (
     <>
-      <h1>Detail Dentist {id}</h1>
+      <h1>Detalles del dentista {id}</h1>
       <table>
         <tr>
-          <th>name</th>
+          <th>Nombre</th>
           <th>Email</th>
-          <th>Phone</th>
-          <th>Website</th>
+          <th>Teléfono</th>
+          <th>Sitio web</th>
         </tr>
         <tr>
           <td>{odontologo?.name}</td>
