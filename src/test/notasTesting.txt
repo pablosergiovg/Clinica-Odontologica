@@ -1,0 +1,81 @@
+Repo del tutorial de testing con ejemplos: https://github.com/GarajedeIdeas/CodePills-Testing-components
+
+** Agregar import de jest al principio del archivo **
+    import  '@testing-library/jest-dom'
+
+
+**** MÉTODOS ****
+
+** beforeEach() **
+    Lo que ponga acá se va a guardar y podrá usarse dentro de los tests. Por ejemplo si renderizo un componente acá, el mismo va a poder ser usado dentro de cada test usando el mismo renderizado, o si guardo en una constante el llamado a un elemento mediante screen.getByRole.
+
+** render() **
+    Permite renderizar en un virtualDOM los componentes que quiero probar, para no tener que renderizar la aplicación completa. El componente renderiza un jsx que después se transforma en html.
+
+** screen() **
+    Utiliza métodos que permiten recuperar elementos del componente que se está renderizando. 
+
+    ** Métodos de screen de acceso a elementos **
+        -- .getByRole(): permite hacer referencia a un elemento del jsx a partir del rol que tiene. Tiene dos parámetros:
+                -> 1) El rol: casi todas las etiquetas tienen un rol (article, button, etc.), ver la documentación para tener la lista completa.
+                -> 2) Cuál elemento que cumpla dicho rol debe recuperar: se suele usar { name: 'nombreDelElemento' } para seleccionar el elemento a probar.
+                ---> Ejemplo: el name para un button se puede definir por su atributo title.
+                    const botoncito = screen.getByRole('button', { name: 'botonPrinciapl'})
+                    --> Teniendo en mi componente un <button title='botonPrinciapl'>
+
+            ** NOTA 1: getByRole es el más recomendado y se puede usar para casi todo **
+            ** NOTA 2: puedo poner el parámetro a buscar dentro de slashes y con una "i" al final, esto lo convierte en una expresión regular que ignora las mayúsculas **
+                --> Ejemplo: const formRes = screen.findByText(/Gracias Andrés, te contactaremos cuanto antes vía email/i)
+
+        -- .getByLabelText(): recomendado para recuperar elementos de formulario ya que casi todos tendrán un lable asociado. 
+                --> Ejemplo del código jsx: el valor de la propiedad htmlFor del label debe ser el mismo al valor de la propiedad id del input.
+                    <label htmlFor='cookieCheckbox'></label>
+                    <input type='checkbox' id='cookieCheckbox' />
+                --> Ejemplo del código del test: checkbox = screen.getByLabelText('Acepta las cookies'). Para usarlo necesito algún elemento de formulario que tenga un label='Acepta las cookies'
+        -- .getByPlaceholderText()
+        -- .getByText()
+        -- .getByDisplayValue()
+        -- .getByAltText()
+        -- .getByTitle()
+        -- .getByTestId()
+
+    ** Métodos para acceder a valores de elementos **
+    -- .textContent: accede al texto del elemento
+        Ejemplo: expect(article.textContent).toBe('Cookies aceptadas')
+
+
+
+
+** Métodos expect **
+    Es donde se coloca lo que vamos a evaluar, y cómo (a través de sus métodos).
+    Por ejemplo:
+    --.expectToBe(): comprueba si el elemento tiene el valor esperado
+        --> Ejemplo: expect(value).toBe(1)
+    --.expectToBeInTheDocument(): comprueba si el elemento está en el documento
+        --> Ejemplo: expect(article).toBeInTheDocument()
+    --.toHaveStyle(): comprueba si el elemento tiene los estilos esperados. Las claves y valores de los estilos se escriben en camelCase.
+        --> Ejemplo: expect(article).toHaveStyle({
+            backgroundColor: 'indigo'
+        })
+    --.toBeChecked(): comprueba si el elemento está chequeado
+    --.t
+
+    ** NOTA: a todos estos métodos les puedo poner un .not antes para comprobar lo contrario **
+        Ejemplo: expect(checkbox).not.toBeChecked()
+
+** Métodos fireEvent **
+    Permite lanzar acciones que simulan las acciones del usuario mediante.
+    Por ejemplo:
+    --.click(): recibe por parámetro el elemento sobre el cual disparar una acción que simula un onClick
+        Ejemplo de uso:
+            fireEvent.click(button)
+            expect(article).toHaveStyle({
+                backgroundColor: 'red'
+            })
+        Esto primero dispara el evento de clickear en el botón para cambiar el estilo del artículo y luego comprobar que tenga el estilo deseado.
+
+    --.change(): recibe por parámetro el elemento sobre el cual disparar una acción que simula un onChange
+        Ejemplo de uso:
+            fireEvent.change(inputName, (target: {value: 'pep'}))
+        Esto dispara el evento de cambiar el valor del input (simula a un usuario rellenando un input)
+    --.keyDown()
