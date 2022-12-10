@@ -26,8 +26,6 @@ const Form = () => {
     validationSchema: esquemaContacto
   })
 
-  // htmlFor="Nombre completo"
-
   return (
     <div className="form-container">
       <Typography sx={{marginBottom: "50px"}} color='primary' variant='h4' align='center'>Formulario de contacto</Typography>

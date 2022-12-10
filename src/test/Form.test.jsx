@@ -2,7 +2,6 @@ import { fireEvent, render, screen } from '@testing-library/react'
 import Form from '../Components/Form'
 
 describe('Form component', () => {
-
     let inputName;
     let inputEmail;
     let button;
@@ -32,5 +31,4 @@ describe('Form component', () => {
         const formRes = await screen.findByText(/Gracias Andrés, te contactaremos cuanto antes vía email/i)
         expect(formRes).toBeInTheDocument()
     })
-
 })
