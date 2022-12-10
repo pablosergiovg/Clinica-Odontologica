@@ -5,7 +5,7 @@ import { Outlet } from 'react-router'
 
 const Layout = () => {
   return (
-    <div>
+    <div className='App'>
       <Navbar/>
       <Outlet/>
       <Footer/>
